@@ -13,7 +13,7 @@ pipeline {
 
         stage('stage 1') {
             steps {
-                script {
+                  script {
                     openshift.withCluster() {
                         openshift.withProject() {
                                 echo "stage 1: using project: ${openshift.project()} in cluster ${openshift.cluster()}"
@@ -24,6 +24,12 @@ pipeline {
         }
 
         // TODO: ADD A STAGE THAT SAYS HELLO
+           stage('stage 2') {
+            steps {
+             sh 'echo hello from stage 2!'
+    }
+}
+
 
         // TODO: ADD AN APPROVAL STAGE
 
